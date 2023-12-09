@@ -22,7 +22,7 @@ app.listen(port, () => {
   console.log("App listening at http://%s:%s", host, port);
 });
 
-app.get("/listProducts", async (req, res) => {
+app.get("/api/listProducts", async (req, res) => {
   await client.connect();
   console.log("Node connected successfully to GET MongoDB");
   const query = {};
@@ -36,7 +36,7 @@ app.get("/listProducts", async (req, res) => {
   res.send(results);
 });
 
-app.get("/listProducts/:id", async (req, res) => {
+app.get("/api/listProducts/:id", async (req, res) => {
   const productid = Number(req.params.id);
   console.log("Product to find :", productid);
   await client.connect();
