@@ -55,6 +55,7 @@ app.post("/api/createProduct", async (req, res) => {
   const result = await db.collection("fakestore_catalog").insertOne(newProduct);
   
   console.log("Inserted new product with ID:", result.insertedId);
+  console.log("Inserted new product: ", req.body);
   
   res.status(201).send({ _id: result.insertedId });
 });
@@ -62,10 +63,11 @@ app.post("/api/createProduct", async (req, res) => {
 app.put("/api/updateProduct/:id", async (req, res) => {
   const productId = req.params.id;
   const updatedProduct = req.body;
-  console.log("Updating product with ID:", productId);
+  console.log("Updating product with ID:", updatedProduct.id);
+  console.log("New product details: ", updatedProduct);
 
   await client.connect();
-  const query = { _id: ObjectId(productId) };
+  const query = { id: updatedProduct.id };
   const result = await db.collection("fakestore_catalog").updateOne(query, { $set: updatedProduct });
 
   console.log("Modified product count:", result.modifiedCount);

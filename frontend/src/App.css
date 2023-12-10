@@ -49,15 +49,18 @@ nav {
   display: flex;
 }
 
-/* Add padding or margin to push content below the nav */
+nav > p {
+  margin-top: 20px;
+}
+
 body {
-  padding-top: 70px; /* Adjust this value to match the height of your nav */
+  padding-top: 70px; 
 }
 
 .link {
   text-decoration: none;
   padding: 10px 20px;
-  margin-right: 10px; /* Add margin between links */
+  margin-right: 10px;
   background-color: #3498db;
   color: #fff;
   border: none;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const DeleteProduct = () => {
+  const [success, setSuccess] = useState(false);
   const [productId, setProductId] = useState("");
   const [productDetails, setProductDetails] = useState(null);
 
@@ -19,24 +20,27 @@ const DeleteProduct = () => {
       .catch((error) => {
         console.error("Error fetching product details:", error);
         setProductDetails(null);
+        setSuccess(false);
       });
   };
 
   const handleDeleteProduct = () => {
-    // Add your logic to delete the product by ID from the backend
     fetch(`http://127.0.0.1:4000/api/deleteProduct/${productId}`, {
       method: "DELETE",
     })
       .then((response) => {
         if (response.status === 200) {
           console.log("Product deleted successfully");
-          // Optionally, you can reset the form or perform other actions
+          setProductId(0);
+          setSuccess(true);
         } else {
           console.error("Error deleting product");
+          setSuccess(false);
         }
       })
       .catch((error) => {
         console.error("Error deleting product:", error);
+        setSuccess(false);
       });
   };
 
@@ -62,6 +66,7 @@ const DeleteProduct = () => {
           <button onClick={handleDeleteProduct}>Delete Product</button>
         </div>
       )}
+      {success ? "Deleted Product Successfully" : ""}
     </div>
   );
 };
