@@ -2,6 +2,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import DeleteProduct from "./Delete"; 
+
 
 function App() {
   return (
@@ -119,16 +121,6 @@ const UpdateProduct = () => {
     </div>
   );
 };
-
-const DeleteProduct = () => {
-  return (
-    <div>
-      <h1>Delete Product</h1>
-      <h1>Delete Product</h1>
-      <h1>Delete Product</h1>
-    </div>
-  );
-}
 
 const CreateProduct = () => {
   const [formData, setFormData] = useState({
