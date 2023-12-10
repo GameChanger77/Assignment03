@@ -2,8 +2,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import DeleteProduct from "./Delete"; 
-
+import DeleteProduct from "./Delete";
+import bootstrap from "bootstrap";
 
 function App() {
   return (
@@ -12,12 +12,24 @@ function App() {
         {/* Navigation Bar */}
         <nav>
           <p>
-              <Link to="/get" className="link">Get Product</Link>
-              <Link to="/getid" className="link">Get by Id</Link>
-              <Link to="/createProduct" className="link">Create Product</Link>
-              <Link to="/updateProductid" className="link">Update Product</Link>
-              <Link to="/deleteProductid" className="link">Delete Product</Link>
-              <Link to="/about" className="link">About</Link>
+            <Link to="/get" className="link">
+              Get Product
+            </Link>
+            <Link to="/getid" className="link">
+              Get by Id
+            </Link>
+            <Link to="/createProduct" className="link">
+              Create Product
+            </Link>
+            <Link to="/updateProductid" className="link">
+              Update Product
+            </Link>
+            <Link to="/deleteProductid" className="link">
+              Delete Product
+            </Link>
+            <Link to="/about" className="link">
+              About
+            </Link>
           </p>
         </nav>
         {/* Routes */}
@@ -59,11 +71,34 @@ const GET = () => {
     </div>
   ));
   return (
-    <div>
-      <h1>Catalog of Products</h1>
-      <div>
-        <h3>Show all available Products.</h3>
-        <div>Products {showAllItems}</div>
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {product.map((el) => (
+            <div class="col" key={el.id}>
+              <div class="card shadow-sm">
+                <div class="internal-product-image">
+                  <img
+                    src={el.image}
+                    class="bd-placeholder-img card-img-top"
+                    width="100%"
+                    height="100%"
+                    alt="Product"
+                  />
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{el.title}</h5>
+                  <p class="card-text">
+                    Id: {el.id} <br />
+                    Category: {el.category} <br />
+                    Price: ${el.price} <br />
+                    Rating: {el.rating}⭐<br />
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -98,6 +133,9 @@ const GETID = () => {
   return (
     <div>
       <h1>Show one Product by Id </h1>
+      {/* -------------
+  Method GET one product
+  -----------------*/}
       <div>
         <input
           type="text"
@@ -106,7 +144,36 @@ const GETID = () => {
           placeholder="id"
           onChange={(e) => getOneProduct(e.target.value)}
         />
-        <div>{showOneItem}</div>
+        <div class="album py-5 bg-body-tertiary">
+          <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              {oneProduct.map((el) => (
+                <div class="col" key={el.id}>
+                  <div class="card shadow-sm">
+                    <div class="internal-product-image">
+                      <img
+                        src={el.image}
+                        class="bd-placeholder-img card-img-top"
+                        width="100%"
+                        height="100%"
+                        alt="Product"
+                      />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{el.title}</h5>
+                      <p class="card-text">
+                        Id: {el.id} <br />
+                        Category: {el.category} <br />
+                        Price: ${el.price} <br />
+                        Rating: {el.rating}★<br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -187,7 +254,7 @@ const CreateProduct = () => {
         />
 
         {/* Add other form fields as needed */}
-        
+
         <button type="submit">Create Product</button>
       </form>
     </div>
@@ -201,7 +268,7 @@ const About = () => {
       <h1>InSert Student information here lol</h1>
       <h1>InSert Student information here lol</h1>
     </div>
-  )
-}
+  );
+};
 
 export default App;
