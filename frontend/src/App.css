@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+nav {
+  background-color: rgb(0, 4, 76);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 10;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-right: 10px; /* Add margin between links */
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.link:hover {
+  background-color: #2980b9;
+  color: #fff;
+  text-decoration: none;
+}

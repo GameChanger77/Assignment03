@@ -9,14 +9,10 @@ function App() {
       <div>
         {/* Navigation Bar */}
         <nav>
-          <ul>
-            <li>
-              <Link to="/get">GET</Link>
-            </li>
-            <li>
-              <Link to="/getid">Get by Id</Link>
-            </li>
-          </ul>
+          <p>
+              <Link to="/get" className="link">GET</Link>
+              <Link to="/getid" className="link">Get by Id</Link>
+          </p>
         </nav>
         {/* Routes */}
         <Routes>
