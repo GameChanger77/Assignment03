@@ -32,7 +32,7 @@ const GET = () => {
     getAllProducts();
   }, []);
   function getAllProducts() {
-    fetch("http://127.0.0.1:8081/api/listProducts")
+    fetch("http://127.0.0.1:4000/api/listProducts")
       .then((response) => response.json())
       .then((data) => {
         console.log("Show Catalog of Products :");
@@ -69,7 +69,7 @@ const GETID = () => {
   function getOneProduct(id) {
     console.log(id);
     if (id >= 1 && id <= 20) {
-      fetch("http://127.0.0.1:8081/api/listProducts/" + id)
+      fetch("http://127.0.0.1:4000/api/listProducts/" + id)
         .then((response) => response.json())
         .then((data) => {
           console.log("Show one product :", id);

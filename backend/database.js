@@ -5,8 +5,9 @@ var bodyParser = require("body-parser");
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use("/images", express.static("images"));
 
-const port = "8081";
+const port = "4000";
 const host = "localhost";
 
 const { MongoClient } = require("mongodb");
@@ -47,5 +48,7 @@ app.get("/api/listProducts/:id", async (req, res) => {
   else res.send(results).status(200);
 });
 
-
+app.post("/api/createProduct", async (req, res) => {
+  
+});
 
