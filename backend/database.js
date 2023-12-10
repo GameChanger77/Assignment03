@@ -78,11 +78,11 @@ app.put("/api/updateProduct/:id", async (req, res) => {
 });
 
 app.delete("/api/deleteProduct/:id", async (req, res) => {
-  const productId = req.params.id;
+  const productId = Number(req.params.id);
   console.log("Deleting product with ID:", productId);
 
   await client.connect();
-  const query = { _id: ObjectId(productId) };
+  const query = { id: productId };
   const result = await db.collection("fakestore_catalog").deleteOne(query);
 
   console.log("Deleted product count:", result.deletedCount);
