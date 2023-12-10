@@ -10,7 +10,7 @@ const DeleteProduct = () => {
 
   const handleFetchProduct = () => {
     // Add your logic to fetch product details by ID from the backend
-    fetch(`http://127.0.0.1:4000/api/listProducts/${productId}`)
+    fetch('http://127.0.0.1:4000/api/listProducts/' + productId)
       .then((response) => response.json())
       .then((data) => {
         console.log("Product details:", data);

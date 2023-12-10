@@ -36,11 +36,11 @@ app.get("/api/listProducts", async (req, res) => {
 });
 
 app.get("/api/listProducts/:id", async (req, res) => {
-  const productId = req.params.id;
+  const productId = Number(req.params.id);
   console.log("Product to find :", productId);
   await client.connect();
   console.log("Node connected successfully to GET-id MongoDB");
-  const query = { _id: ObjectId(productId) };
+  const query = { id: productId };
   const result = await db.collection("fakestore_catalog").findOne(query);
   console.log("Result :", result);
   if (!result) res.status(404).send("Not Found");
