@@ -5,7 +5,7 @@ const DeleteProduct = () => {
   const [productId, setProductId] = useState("");
   const [productDetails, setProductDetails] = useState(null);
 
-  const handleInputChange = (e) => {
+  const handleIdInputChange = (e) => {
     setProductId(e.target.value);
   };
 
@@ -53,7 +53,7 @@ const DeleteProduct = () => {
         id="productId"
         name="productId"
         value={productId}
-        onChange={handleInputChange}
+        onChange={handleIdInputChange}
       />
       <button onClick={handleFetchProduct}>Fetch Product Details</button>
 
