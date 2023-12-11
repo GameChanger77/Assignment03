@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div>
       <main id="body">
-        <div class="info">
+        <div className="info">
           <label>
             <b>Course Name:</b>
           </label>
@@ -17,7 +17,7 @@ const About = () => {
           </span>
         </div>
 
-        <div class="info">
+        <div className="info">
         <b>Developer Names:</b>
           <span>
             Jacob Schulmeister V<br/>
@@ -26,7 +26,7 @@ const About = () => {
           <img src="http://127.0.0.1:4000/images/DeveloperPhoto.JPG" width="300" height="225" />
         </div>
 
-        <div class="info">
+        <div className="info">
           <label>
             <b>Student Emails:</b>
           </label>
@@ -37,7 +37,7 @@ const About = () => {
           <span>timkuehn@iastate.edu</span>
         </div>
 
-        <div class="info">
+        <div className="info">
           <label>
             <b>Name of the Professor:</b>
           </label>
@@ -46,7 +46,7 @@ const About = () => {
           </span>
         </div>
 
-        <div class="info">
+        <div className="info">
           <label>
             <b>Date:</b>
           </label>
