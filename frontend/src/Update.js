@@ -92,7 +92,7 @@ const UpdateProduct = () => {
   return (
     <div>
       <h1>Update Product</h1>
-
+  
       <label htmlFor="productId">Product ID:</label>
       <input
         type="text"
@@ -102,7 +102,7 @@ const UpdateProduct = () => {
         onChange={handleIdInputChange}
       />
       <button onClick={handleFetchProduct}>Fetch Product Details</button>
-
+  
       {productDetails && (
         <div>
           <h2>Product Details</h2>
@@ -110,17 +110,17 @@ const UpdateProduct = () => {
           <p>Title: {productDetails.title}</p>
           {/* Add other details as needed */}
           {/* <button onClick={}>Delete Product</button> */}
-
+  
           <form onSubmit={handleSubmit}>
             {/* <label htmlFor="id">Id of Product to Update:</label>
-        <input
-          type="number"
-          id="id"
-          name="id"
-          value={formData.id}
-          onChange={handleInputChange}
-        /> */}
-
+            <input
+              type="number"
+              id="id"
+              name="id"
+              value={formData.id}
+              onChange={handleInputChange}
+            /> */}
+  
             <label htmlFor="title">Title:</label>
             <input
               type="text"
@@ -129,7 +129,7 @@ const UpdateProduct = () => {
               value={formData.title}
               onChange={handleInputChange}
             />
-
+  
             <label htmlFor="category">Category:</label>
             <input
               type="text"
@@ -138,7 +138,7 @@ const UpdateProduct = () => {
               value={formData.category}
               onChange={handleInputChange}
             />
-
+  
             <label htmlFor="price">Price:</label>
             <input
               type="number"
@@ -147,7 +147,7 @@ const UpdateProduct = () => {
               value={formData.price}
               onChange={handleInputChange}
             />
-
+  
             <label htmlFor="rating">Rating:</label>
             <input
               type="number"
@@ -156,14 +156,45 @@ const UpdateProduct = () => {
               value={formData.rating}
               onChange={handleInputChange}
             />
-
+  
             <button type="submit">Update Product</button>
           </form>
         </div>
       )}
-      {success ? "Product updated successfully" : ""}
+  
+      {success ? (
+        <div>
+          <h2>Product Details</h2>
+          <div className="album py-5 bg-body-tertiary">
+            <div className="container">
+              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div className="card shadow-sm">
+                  <div className="internal-product-image">
+                    <img
+                      src={productDetails.image}
+                      className="bd-placeholder-img card-img-top"
+                      width="100%"
+                      height="100%"
+                      alt="Product"
+                    />
+                  </div>
+                  <div className="card-body">
+                    <h5 className="card-title">{productDetails.title}</h5>
+                    <p className="card-text">
+                      Id: {productDetails.id} <br />
+                      Category: {productDetails.category} <br />
+                      Price: ${productDetails.price} <br />
+                      Rating: {productDetails.rating}⭐<br />
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
-};
-
+  
+      }
 export default UpdateProduct;
